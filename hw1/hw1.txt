@@ -27,6 +27,6 @@ Part (b)
 2. git log -p -3
 
 Part(c)
-git will prompt you for a message using the editor 
+git will prompt you for a message using the editor and the commit will abort because there is no commiting messages. 
 
 
