@@ -1,0 +1,32 @@
+Part (a)
+1. acceptable 
+2. not acceptable
+3. not acceptable 
+4. acceptable 
+5. not acceptable 
+6. not acceptable 
+
+Part (b)
+Microsoft Visual Studio 
+Eclipse
+GNU Emacs 
+sublime text
+
+Part (c)
+2.
+
+Part (d)
+3.
+
+Problem 2
+Part (a)
+3.
+
+Part (b)
+1. git add hw1q3b.cpp
+2. git log -p -3
+
+Part(c)
+the git will commit all of the files and use the editors to associate each of them a message 
+
+Problem 3
