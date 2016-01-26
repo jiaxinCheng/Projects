@@ -16,7 +16,7 @@ Part (c)
 2.
 
 Part (d)
-3.
+2.
 
 Problem 2
 Part (a)
@@ -27,6 +27,6 @@ Part (b)
 2. git log -p -3
 
 Part(c)
-the git will commit all of the files and use the editors to associate each of them a message 
+git will prompt you for a message using the editor 
 
-Problem 3
+
