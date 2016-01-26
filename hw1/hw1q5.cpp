@@ -6,30 +6,21 @@
 using namespace std;
 void reverse(stringstream &infile,int num, int count){
 	string out;
-	//bool print = false;
+	
 	if (count == num){
-		//print = true;
+		
 		return;
 	}
 	else {		
 		infile >> out;
-		//++count;
+		
 		
 		reverse (infile,num, ++count);
-		//cout<<out << endl;
+		
 	}
-	//if (print){
+	
 		cout << out << endl;
-	//}
-	/*if (check){
-		print(out);		
-	}*/
-	/*if (infile >> out || count < num || count == num){
-		return reverse (infile);
-	}
-	else {
-		return out;
-	}*/
+	
 
 }
 int main(int argc, char* argv[]){
@@ -57,7 +48,7 @@ int main(int argc, char* argv[]){
 		}
 		
 		reverse(infile, x, y);
-		//cout << a;
+		
 
 		return 0;
 	}
