@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
 
   //you will need to keep track of how many people are on each floor.
   floorsizes = new int[floors];
-  int **numpro = new int* [floors];
+  int **numpro = new int* [floors];//using another two demensional array tracking the number of properties
 
   for (int i = 0; i < floors; i++) {
 	  floorsizes[i] = 0;
@@ -47,8 +47,8 @@ int main(int argc, char* argv[])
 		  if (ss.fail()) {
 			  output << "Error - incorrect command" << endl;
 		  }
-		  ss >> err;
-		  if (ss.fail()){	 
+		  ss >> err;//check if there are any other content after what is asked
+		  if (ss.fail()){// if there is not, the stringstream should fail 	 
 		  
 		  	if (i > floors|| i <1){
 		  		output << "Error - floor " << i << " does not exist" <<endl;
@@ -59,10 +59,10 @@ int main(int argc, char* argv[])
 		  	else{
 		  		floorsizes[i-1] = k;
 		  		trojans[i-1] = new string *[k];
-		  		for (int j =0; j< k; j++){
+		  		for (int j =0; j< k; j++){// initialize the floors
 		  			trojans[i-1][j] = NULL;
 		  		}
-		  		numpro[i-1] = new int [k];
+		  		numpro[i-1] = new int [k];// initialize the array tracking number of properties 
 		  	}
 		  }
 		   else {
