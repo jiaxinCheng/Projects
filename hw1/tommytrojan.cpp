@@ -40,12 +40,16 @@ int main(int argc, char* argv[])
 	  ss >> curr;
 	  if (curr == "MOVEIN") {
 		  int i,k;
+		  string err;
 		  ss >> i;
 		  ss >> k;
+		  
 		  if (ss.fail()) {
 			  output << "Error - incorrect command" << endl;
 		  }
-		  else {
+		  ss >> err;
+		  if (ss.fail()){	 
+		  
 		  	if (i > floors|| i <1){
 		  		output << "Error - floor " << i << " does not exist" <<endl;
 		  	}
@@ -61,14 +65,20 @@ int main(int argc, char* argv[])
 		  		numpro[i-1] = new int [k];
 		  	}
 		  }
+		   else {
+		  	output << "Error - incorrect format" << endl;
+		  }
 	  }
 	  else if (curr == "MOVEOUT") {
+	  	 int i;
+	  	 string err;
+	  	 ss >> i;
 	  	 if (ss.fail()) {
 			  output << "Error - incorrect command" << endl;
 		  }
-		 else{
-		  		int i;
-	  			ss >> i;
+		 ss >> err;
+		 if (ss.fail()){
+		  		
 	  			if (i  > floors || i <1){
 	  				output << "Error - floor " << i << " does not exist" << endl;
 	  			}
@@ -91,18 +101,20 @@ int main(int argc, char* argv[])
 	  				floorsizes[i-1] =0;
 	  			}
 		  
-	  	
 	  		}
+	  	 else {
+	  		output << "Error - incorrect format" << endl;
+	  	}
 		}
 	  else if (curr == "OBTAIN") {
+	  	int i, j,k;
+	  		ss >> i;
+	  		ss >> j;
+	  		ss >> k;
 	  	if (ss.fail()) {
 			  output << "Error - incorrect command" << endl;
 		  }
 	  	else{
-	  		int i, j,k;
-	  		ss >> i;
-	  		ss >> j;
-	  		ss >> k;
 
 	  		if (j > floorsizes[i-1] || trojans[i-1] == NULL || j <1){
 	  			output << "Error - there is no student " << j <<endl;
@@ -118,6 +130,7 @@ int main(int argc, char* argv[])
 	  				numpro[i-1][j-1] = k;
 	  				for (int c =0; c <k; c++){
 	  					ss >> trojans[i-1][j-1][c];
+
 	  			}
 	  		}
 
@@ -125,12 +138,15 @@ int main(int argc, char* argv[])
 	}
 	  else if (curr == "OUTPUT") {
 	  	int i,j;
-	  		ss >> i;
-	  		ss >> j;
+	  	string sss;
+	  	ss >> i;
+	  	ss >> j;
 	  	if (ss.fail()) {
 			  output << "Error - incorrect command" << endl;
 		  }
-		else{ 
+		 ss >> sss;
+
+		if (ss.fail()){ 
 	  		
 	  		if ( i > floors ||i <1){
 	  			output << "Error - there is no floor " << i << endl;
@@ -146,6 +162,9 @@ int main(int argc, char* argv[])
 	  				output<< trojans[i-1][j-1][z] << endl;
 	  			}
 	  		}
+	  	}
+	  	else {
+	  		output << "Error - incorrect command " << endl;
 	  	}
 	  }
 	  else {
