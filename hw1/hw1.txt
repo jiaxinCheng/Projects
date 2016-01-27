@@ -20,7 +20,7 @@ Part (d)
 
 Problem 2
 Part (a)
-3.
+3. 1.
 
 Part (b)
 1. git add hw1q3b.cpp
