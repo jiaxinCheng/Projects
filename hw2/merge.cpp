@@ -11,13 +11,11 @@ Node* merge(Node*& first, Node*& second){
 	}
 	else if (first == NULL && second != NULL){
 		Node* second1=second;
-		second1->next=merge(first,second->next);
 		second = NULL;
-		return second1;//if the first list runs out, return the pointer of second list one by one
+		return second1;//if the first list runs out, the have the second list behind the first one.
 	}
 	else if(first != NULL && second == NULL){
 		Node* first1=first;
-		first1->next=merge(first->next,second);
 		first = NULL;
 		return first1;
 	}
@@ -37,5 +35,4 @@ Node* merge(Node*& first, Node*& second){
 	}
 		
 }
-
 
