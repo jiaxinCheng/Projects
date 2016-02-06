@@ -5,4 +5,4 @@ test: test.cpp llistint.o
 llistint.o: ../llistint.h ../llistint.cpp
 	g++ -g -Wall -c ../llistint.cpp -o llistint.o
 clean:
-	rm llistint.o test
+	rm llistint.o test   
