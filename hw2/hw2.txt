@@ -39,6 +39,7 @@ for (int i = 1; i < n; i ++)
         }
    }
 }
+firstly, doing the summation from k=1 to k= logn for 0(1)and we get log(n). then doing the amortize for this problem. firstly doing the summation from i to j and the i to n for 0(1) and for 0(logn). for the anwser we have 0(n^2) if there j%i ==0 and 0(n^2log(n)) if j%n !=0. and then the worse case will be n^2log(n).
 
 part (3)
 0(n^2)
@@ -90,3 +91,64 @@ problem 4
 
 Problem 5
 5 4 3 2 1 
+the first function is taking in one linked list and seperate the first element as "in" from the list and the following nodes out until there is no node left. and then call function B will "in" and "out".
+
+the function B takes in two linked lists and return the last element of the second linked list and change the next pointer of the last element to the first linked lists(the "in" from function A). 
+
+the functionality of the program piece is to reverse the order of the passed in linked list. 
+here is steps that the pieces does when passing in 1 2 3 4 5.
+
+  1. in -> value = 1;
+    funcA (in// value = 1){
+      out = funcA(in->next//value = 2);
+        out = funcA(in -> next // value = 3);
+        out = funcA(in -> next // value =4);
+          out = funcA(in -> next // value =5);
+            return in //value = 5;
+  }
+
+  2.funcA (in// value = 1){
+    out = funcA(in->next//value = 2);
+     out = funcA(in -> next // value = 3);
+      out = funcA(in -> next // value =4);
+        out = 5;
+        funcB(4,5);
+          in2 -> = in1 // the next of 5 becomes 4;
+        in -> next = NULL;// the next value of 4 is NULL now 
+        return out; // in2 value =  5, next points to 4
+  }
+  3. funcA (in// value = 1){
+    out = funcA(in->next//value = 2);
+     out = funcA(in -> next // value = 3);
+      out = 5;
+        funcB(3,5);
+          funcB(3,4);//4 is the next of 5
+          in2 -> = in1 // the next of 4 becomes 3;
+        in -> next = NULL;// the next value of 3 is NULL now 
+        return out; // in2 value =  5, next points to 4 which next is 3
+  }
+  4. funcA (in// value = 1){
+    out = funcA(in->next//value = 2);
+      out = 5;
+        funcB(2,5);
+          funcB(2,4);//4 is the next of 5
+            funcB(2,3);//3 is the next of 4
+          in2 -> = in1 // the next of 3 becomes 2;
+        in -> next = NULL;// the next value of 2 is NULL now 
+        return out; // in2 value =  5, next points to 4 which next is 3, which points to 2 
+  }
+  5. funcA (in// value = 1){
+      out = 5;
+        funcB(1,5);
+          funcB(1,4);//4 is the next of 5
+            funcB(1,3);//3 is the next of 4
+              funcB(1,2);//2 is the next of 3
+          in2 -> = in1 // the next of 2 becomes 1;
+        in -> next = NULL;// the next value of 1 is NULL now 
+        return out; // in2 value =  5, next points to 4 which next is 3, which points to 2 whose pointer is
+                   //pointing to 1.
+  6. funcA(in){
+    return out; // value is 5 
+  } 
+  therefore the resulted linked list is 5 4 3 2 1 NULL.
+
