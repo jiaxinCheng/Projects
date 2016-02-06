@@ -60,7 +60,7 @@ void LListInt::insert(int loc, const int& val)
     node -> next = curr;
     node -> prev = befo;
     curr -> prev = node;
-    curr -> prev -> next = node;
+    befo -> next = node;
     size_++;
 
   }
