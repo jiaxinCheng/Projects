@@ -1,0 +1,92 @@
+problem 1
+part(a)
+the status of README.md is tracked and unmodified. 
+part(b)
+the status of README.md is modified but and fun_problem.txt is untracked.
+part(c)
+both of the files are staged. 
+part(d)
+both of the files are modified
+part(e)
+README.md is staged while the status of the fun_problem is unmodified. the content of the fun_problem.txt is empty because the check out command undo the previous "echo" input. 
+part(f)
+the file is staged and modified because the last change did not commit but staged and the last edit has not been add(staged) yet. 
+
+
+problem 3.
+part(a)
+
+0(nlog(n))
+
+for (int i = 0; i < n; i ++)
+    if (A[i] == 0) {
+       for (int j = 1; j < n; j *= 2)
+          { /* do something that takes O(1) time */ }
+    }
+
+the most inner part of the loop takes 0(1) and the outer part is the summation of 0(1) from 1 to log n, which gives us 0(log(n)). then because we are assuming the worse case, A[i] will always be zero. And the outer loop will loop n times which gives us a summation of 0(log(n)) from 1 to n. therefore the result will be 0(nlog(n)).
+
+part(b)
+0(n^2log(n))
+for (int i = 1; i < n; i ++)
+{
+   for (int j = i; j < n; j ++)
+   {
+        if (j % i == 0)
+        {
+            for (int k = 1; k < n; k *= 2)
+               { /* do something that takes O(1) time */ }
+        }
+   }
+}
+
+part (3)
+0(n^2)
+int *a = new int [10];
+int size = 10;
+for (int i = 0; i < n; i ++) 
+{
+   if (i == size)
+   {  
+       int newsize = size+10;
+       int *b = new int [newsize];
+       for (int j = 0; j < size; j ++) b[j] = a[j];
+       delete [] a;
+       a = b;
+       size = newsize;
+   }
+   a[i] = sqrt(i);
+}
+
+doing the amortize worse time analysis for this one. when the size has to be incresed, the i is the product of 10* c, where c is ranged from 1 to n/10. therefore doing the summation of 10i where i ranges from 1 to n/10. for the not increasing, doing the summation for 0(1) from 1 to n. therefore, giving us 0(n). The total operation will be 0(n^2).
+
+part (4)
+0(n)
+
+int *a = new int [10];
+int size = 10;
+for (int i = 0; i < n; i ++) 
+{
+   if (i == size)
+   {  
+       int newsize = 2*size;
+       int *b = new int [newsize];
+       for (int j = 0; j < size; j ++) b[j] = a[j];
+       delete [] a;
+       a = b;
+       size = newsize;
+   }
+   a[i] = sqrt(i);
+}
+
+doing the amortize worse time for the program. when the size has to be increase, we are doing the summation of 0(i) where i ranging from 1 to n. after switching to do the summation 0(2^i) where i ranging from 0 to log(n), the summation can be solved and we get 0(n). the other part is the summation of 0(1)where i ranging from 1 to n and we get 0(n). we get in total 0(n).
+
+
+problem 4
+1. a List that stores all of the name of the president in order. the reason of using list is to the order matters and people might want to add names to the list or search the list, which can be implement easily using the list. 
+2. a map that have all the zip code associate to the population will work in this case. Given the zip code of the area which serve as the key value, the population estimates cannot be accessed pretty quickly and therefore using the map ADT
+3. a set of the name of the students will be appropriate. because we only need the name exists and what we need to know is that whether the student is in the list or not. in addition the set can easily add or remove too. 
+4. a map uses the student ID and assignment number as key value and the grade as the value. Using map for this can have the user easily check the grade and the order of the data is not really important. user will only ask the grade for specific ID and assignment number instead of the 2nd position student's 1st assignment. Therefore, a map is enough to store all the information. 
+
+Problem 5
+5 4 3 2 1 
