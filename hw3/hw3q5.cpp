@@ -246,7 +246,7 @@ int main(int argc, char *argv[]){
 		string temp;
 		getline(in, temp);
 		int result;
-		if(!in.fail()){
+		if(!temp.empty()){
 			result =compute(temp);
 			if (result == -1){
 				cout << "Malfunction" << endl;
