@@ -213,6 +213,9 @@ int compute(string src){
 				stack.push(a-48);
 			}
 		}
+	}
+	if (stack.empty()){
+		return -2;
 	}	
 	int final =  stack.top();
 	stack.pop();
@@ -253,7 +256,9 @@ int main(int argc, char *argv[]){
 				cout << "Malfunction" << endl;
 			} 
 			else{
-				cout << result << endl;
+				if (result != -2){
+					cout << result << endl;
+				}
 			}
 		}
 	}		
