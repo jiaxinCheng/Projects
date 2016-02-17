@@ -1,0 +1,36 @@
+void someclass::somefunc() {
+  if (this->n == this->max) {
+    bar();
+    this->max *= 2;
+  } else {
+    foo();
+  }
+  (this->n)++;
+}
+
+part (a)
+0(n^2) because we are doing the worse time, between the runtime of 0(logn) and 0(n^2), we should definately choose 0(n^2), when n = max, we have the runtime of n^2
+
+part (b)
+0(n^2).doing the amortize for the function, for the first part: when doing the bar(), which takes 0(n^2) time. Then we can the summation from i =0 to i = log(n/10) for ((10*2)^2i). because every 10*2^2i time, we run the functions once. and plus the summation from i = 1 to i = n for log (n). Then get the result by dividing the sum by n. (n^2+nlog(n))/n. therefore, we have the run time of 0(n^2)
+
+Part(c)
+0(nlogn). Similar to the previous questions, doing the same summation for bar and get 0(n^2) and then we will do the summation of foo(), which takes 0(nlogn), from i =1 to i =n. therefore we get 0(n^2logn+n^2)/n.therefore, the result is 0(nlogn).
+
+Part(d)
+void someclass::anotherfunc() {
+  if (this->n > 0) (this->n)--;
+  if (this->n <= (this->max)/2) {
+    bar();
+    this->max /= 2;
+  } 
+  else {
+    foo();
+  }
+}
+becuase n =0; and max = 10;
+
+therefore the worse time function call will be 
+anotherfunc - anotherfunc -anotherfunc -anotherfunc - somefunc - anotherfunc -somefunc - anotherfunc -...
+after four times of anotherfunc, we call somefunc and anotherfunc alternatively, we will have the worse time runtime sequences. beucace when max = n =0, we will always do bar in the somefunc and after n=1, another func will help us subtract n to 0;
+the amortized runtime for each function call is 0(n^2) because everytime we do the function call, we are having the runtime of 0(n^2)
