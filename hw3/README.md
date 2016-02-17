@@ -1,3 +1,9 @@
+# CS 104 Student Repository
+
+- **Name**: Jiaxin cheng
+- **USC ID**: 4659597421
+- **Email**: jiaxinch@usc.edu
+
 in order to compile the hw3q5, just do "make hw3q5" and the program will compile and can be ran in the current directory. In order to clean, do "make cleanhw". 
 if want to do the test for llistint, then type " make tests" and clean the files by typing "make cleantests"
 hw3.txt is the problem 2
