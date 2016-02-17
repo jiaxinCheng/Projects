@@ -1,17 +1,15 @@
 #include "stackint.h"
 
 StackInt::StackInt(){
-	//LListInt * a = new LListInt();
-	//list = *a;
+
 }
 
 StackInt::~StackInt(){
-	//delete &list;
-	//list = NULL;
+	
 } 
 
 bool StackInt::empty() const{
-	return (list.empty()); // can i use a here? 
+	return (list.empty()); 
 }
 
 void StackInt::push(const int& val){
