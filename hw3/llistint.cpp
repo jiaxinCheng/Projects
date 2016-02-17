@@ -162,63 +162,26 @@ LListInt::LListInt(const LListInt& other){
   head_ = NULL;
   tail_ = NULL;
   size_ = 0;
-  Item* temp = other.head_;
   for(int i =0; i < other.size_; ++i){
-    if (size_ == 0){
-      Item* node = new Item;
-      this -> head_ = node;
-      tail_ = node;
-      node -> val = other.head_ -> val;
-      node -> next = other.head_ -> next;
-      node -> prev = NULL;
-      size_ ++;
-    }
-    else{
-      Item* node = new Item;
-      //tail_ = Item;
-      node -> val = temp -> val;
-      node -> next = NULL;
-      node -> prev = tail_;
-      tail_ -> next = node;
-      tail_ = node;
-      size_++;
-    }
-    temp = temp -> next;
+    (*this).insert(i,other.get(i));
   }
 }
 
 LListInt& LListInt::operator= (const LListInt& other){
-  Item* temp = head_;
-  Item* temp2 = other.head_;
-  if (size_ == other.size_ || size_ < other.size_){
-    //head_ -> val = other.head_ -> val;
-    
-    for (int i =0; i < size_; ++i){
-      temp -> val = temp2 -> val;
-      temp = temp -> next;
-      temp2 = temp2 -> next;
-    }
-    if (size_ < other.size_){
-      for(int j = size_; j < other.size_; ++j){
-        temp2 = temp2 -> next;
-        insert(j, temp2 -> val);
-      }
-    }
+  if (this == &other){
+    return *this;
   }
-  else if (size_ > other.size_){
-    for (int j = 0; j < other.size_;++j){
-      temp -> val = temp2 -> val;
-      temp = temp -> next;
-      temp2 = temp2 -> next;
-    }
-    for(int c = other.size_; c< size_;++c){
-      remove(c);
-    }
+  (*this).clear();
+  if (other.size() == 0){
+    return *this; 
   }
-  return *this;//why cannot i return "other" here ? 
+  for (int i =0; i < other.size_;++i){
+    (*this).insert(i,other.get(i));
+  }
+  return *this;
 }
 
-LListInt LListInt::operator+ (const LListInt& other) const{// can i return by reference here?  because the copy constructor is doing the deep copy
+LListInt LListInt::operator+ (const LListInt& other) const{
   LListInt list(*this);
   int size = size_;
   for ( int i =size; i < size + other.size_; ++i){
