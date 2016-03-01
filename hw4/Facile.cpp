@@ -61,9 +61,9 @@ void parseProgram(istream &inf, vector<Statement *> & program)
 	while( ! inf.eof() )
 	{
 		getline(inf, line);
-		if(!inf.eof()){
+		//if(!inf.eof()){
 			program.push_back( parseLine( line ) );
-		}		
+		//}		
 	}
 }
 
