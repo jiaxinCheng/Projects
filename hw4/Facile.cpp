@@ -163,19 +163,24 @@ void interpretProgram(istream& inf, ostream& outf){
 	vector<Statement *> program;
 	parseProgram( inf, program );
 	ProgramState state(1,false);
-	while (state.endcheck() != true){	
-		unsigned int i = state.getline();
-		if (i > program.size()|| i < 1){
-			state.termin();
-			outf << "Illegal jump instruction" << endl;
-		}
-		else{
-			program[i]->execute(&state,outf);
-		}				
+	if (program.size() > 1001){
+		outf << "Exceeding 1000 lines" << endl;
 	}
-	for (unsigned int j = 0; j < program.size();++j){
-		delete program[j];
-		program[j] =NULL;
+	else{
+		while (state.endcheck() != true){	
+			unsigned int i = state.getline();
+			if (i > program.size()|| i < 1){
+				state.termin();
+				outf << "Illegal jump instruction" << endl;
+			}
+			else{
+				program[i]->execute(&state,outf);
+			}				
+		}
+		for (unsigned int j = 0; j < program.size();++j){
+			delete program[j];
+			program[j] =NULL;
+		}
 	}
 	// Incomplete;  TODO:  Finish this function!
 }
