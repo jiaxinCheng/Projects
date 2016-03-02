@@ -50,7 +50,7 @@ public:
 
 private:
 	int m_numLines;
-	bool end;
+	bool end; //to state whether the program is ended
 	std::map<std::string, int> vari;
 	StackInt stack;
 };

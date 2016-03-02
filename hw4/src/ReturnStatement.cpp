@@ -14,7 +14,7 @@ ReturnStatement::~ReturnStatement(){}
 //    * increment the program counter
 void ReturnStatement::execute(ProgramState * state, ostream &outf)
 {
-	if(state -> StackEmpty()){
+	if(state -> StackEmpty()){ //if nothing in stack terminate the program
 		state -> termin();
 	}
 	else {

@@ -18,18 +18,18 @@ int ProgramState::find(std::string var){
 	int num = 0;
 	bool find = false;
 	std::map<std::string, int>::iterator it;
-	for (it = vari.begin(); it != vari.end(); ++it){
+	for (it = vari.begin(); it != vari.end(); ++it){ //find whether the varible exist
 		if(it -> first == var){
 			num = it -> second;
 			find = true;
 		}
 	}
-	if (!find){
+	if (!find){ //not, set new varible to 0
 		setval(var,0);
 	}
 	return num;
 }
-void ProgramState::printall(std::ostream &outf){
+void ProgramState::printall(std::ostream &outf){ //iterate the map
 	std::map<std::string, int>::iterator it;
 	for (it = vari.begin(); it != vari.end(); ++it){
 		outf << it -> first << " "<< it -> second << std::endl;
@@ -55,7 +55,7 @@ int ProgramState::StackTop(){
 	stack.pop();
 	return a;
 }
-bool ProgramState::StackEmpty(){
+bool ProgramState::StackEmpty(){ //check whether the stack is empty
 	return stack.empty();
 }
 

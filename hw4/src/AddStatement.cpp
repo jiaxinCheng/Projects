@@ -18,7 +18,7 @@ void AddStatement::execute(ProgramState * state, ostream &outf)
 	stringstream ss;
 	ss << m_addedName;
 	int added;
-	if(ss >> added){
+	if(ss >> added){ //to see whether it's a number
 		val += added;
 	}
 	else {

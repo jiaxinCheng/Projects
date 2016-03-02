@@ -16,7 +16,7 @@ void IfStatement::execute(ProgramState * state, ostream &outf)
 {
 	int val = state-> find(m_variableName);
 	bool result = false;
-	if (m_oper == "="){		 
+	if (m_oper == "="){		//check operater 
 		result = (val == m_value);		
 	}
 	else if (m_oper == "<>"){
@@ -35,7 +35,7 @@ void IfStatement::execute(ProgramState * state, ostream &outf)
 		result = (m_value >= val);
 	}
 	if (result == true){
-		state -> setline(linenum);
+		state -> setline(linenum); //if true go to
 	}
 	else {
 		state -> increline();
