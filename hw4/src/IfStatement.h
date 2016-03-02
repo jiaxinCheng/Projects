@@ -1,7 +1,7 @@
 #ifndef IF_STATEMENT_INCLUDED
 #define IF_STATEMENT_INCLUDED
 
-#include "../Statement.h"
+#include "Statement.h"
 #include "../ProgramState.h"
 
 class IfStatement: public Statement

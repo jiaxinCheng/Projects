@@ -14,6 +14,11 @@ ReturnStatement::~ReturnStatement(){}
 //    * increment the program counter
 void ReturnStatement::execute(ProgramState * state, ostream &outf)
 {
-	int line = state -> StackTop();
-	state -> setline(line);
+	if(state -> StackEmpty()){
+		state -> termin();
+	}
+	else {
+		int line = state -> StackTop();
+		state -> setline(line);
+	}
 }

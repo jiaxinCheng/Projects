@@ -55,4 +55,7 @@ int ProgramState::StackTop(){
 	stack.pop();
 	return a;
 }
+bool ProgramState::StackEmpty(){
+	return stack.empty();
+}
 

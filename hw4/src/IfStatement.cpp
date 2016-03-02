@@ -23,16 +23,16 @@ void IfStatement::execute(ProgramState * state, ostream &outf)
 		result =  (val != m_value);
 	}
 	else if (m_oper == ">"){
-		result = (m_value > val);
+		result = (m_value < val);
 	}
 	else if (m_oper == "<"){
-		result =  (m_value < val);
+		result =  (m_value > val);
 	}
 	else if (m_oper == ">="){
-		result =  (m_value >= val);
+		result =  (m_value <= val);
 	}
 	else {
-		result = (m_value <= val);
+		result = (m_value >= val);
 	}
 	if (result == true){
 		state -> setline(linenum);

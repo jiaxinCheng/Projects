@@ -42,6 +42,7 @@ public:
 	void setval(std::string var, int val);
 	void StackPush(int line);
 	int StackTop();
+	bool StackEmpty();
 	// You'll need to add a variety of methods here.  Rather than trying to
 	// think of what you'll need to add ahead of time, add them as you find
 	// that you need them.

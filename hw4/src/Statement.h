@@ -8,7 +8,7 @@
 #ifndef STATEMENT_INCLUDED
 #define STATEMENT_INCLUDED
 
-#include "ProgramState.h"
+#include "../ProgramState.h"
 #include <fstream>
 
 class Statement

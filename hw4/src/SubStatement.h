@@ -1,7 +1,7 @@
 #ifndef SUB_STATEMENT_INCLUDED
 #define SUB_STATEMENT_INCLUDED
 
-#include "../Statement.h"
+#include "Statement.h"
 #include "../ProgramState.h"
 
 

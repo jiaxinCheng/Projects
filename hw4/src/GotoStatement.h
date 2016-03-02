@@ -1,7 +1,7 @@
 #ifndef GOTO_STATEMENT_INCLUDED
 #define GOTO_STATEMENT_INCLUDED
 
-#include "../Statement.h"
+#include "Statement.h"
 #include "../ProgramState.h"
 
 

@@ -2,7 +2,7 @@
 #ifndef PRINT_STATEMENT_INCLUDED
 #define PRINT_STATEMENT_INCLUDED
 
-#include "../Statement.h"
+#include "Statement.h"
 #include "../ProgramState.h"
 
 class PrintStatement: public Statement

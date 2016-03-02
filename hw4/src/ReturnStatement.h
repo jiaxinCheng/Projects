@@ -1,7 +1,7 @@
 #ifndef RETURN_STATEMENT_INCLUDED
 #define RETURN_STATEMENT_INCLUDED
 
-#include "../Statement.h"
+#include "Statement.h"
 #include "../ProgramState.h"
 
 class ReturnStatement: public Statement

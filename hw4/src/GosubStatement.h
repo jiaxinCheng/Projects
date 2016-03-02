@@ -1,7 +1,7 @@
 #ifndef GOSUB_STATEMENT_INCLUDED
 #define GOSUB_STATEMENT_INCLUDED
 
-#include "../Statement.h"
+#include "Statement.h"
 #include "../ProgramState.h"
 
 class GosubStatement: public Statement

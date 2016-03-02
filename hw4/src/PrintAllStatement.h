@@ -1,7 +1,7 @@
 #ifndef PRINTALL_STATEMENT_INCLUDED
 #define PRINTALL_STATEMENT_INCLUDED
 
-#include "../Statement.h"
+#include "Statement.h"
 #include "../ProgramState.h"
 
 class PrintAllStatement: public Statement
