@@ -20,6 +20,7 @@ void ReturnStatement::execute(ProgramState * state, ostream &outf)
 	else {
 		int line = state -> StackTop();
 		state -> setline(line);
+		state -> altGosub(-1);
 	}
-	state -> setGosub(false);
+	
 }

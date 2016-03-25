@@ -22,7 +22,7 @@ static const uint qt_meta_data_Debugger[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -34,17 +34,15 @@ static const uint qt_meta_data_Debugger[] = {
       17,    9,    9,    9, 0x0a,
       24,    9,    9,    9, 0x0a,
       32,    9,    9,    9, 0x0a,
-      46,    9,    9,    9, 0x0a,
-      58,    9,    9,    9, 0x0a,
-      65,    9,    9,    9, 0x0a,
+      44,    9,    9,    9, 0x0a,
+      51,    9,    9,    9, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_Debugger[] = {
     "Debugger\0\0step()\0quit()\0Break()\0"
-    "removeBreak()\0acontinue()\0next()\0"
-    "inspect()\0"
+    "acontinue()\0next()\0inspect()\0"
 };
 
 void Debugger::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -56,10 +54,9 @@ void Debugger::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 0: _t->step(); break;
         case 1: _t->quit(); break;
         case 2: _t->Break(); break;
-        case 3: _t->removeBreak(); break;
-        case 4: _t->acontinue(); break;
-        case 5: _t->next(); break;
-        case 6: _t->inspect(); break;
+        case 3: _t->acontinue(); break;
+        case 4: _t->next(); break;
+        case 5: _t->inspect(); break;
         default: ;
         }
     }
@@ -98,9 +95,9 @@ int Debugger::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 6;
     }
     return _id;
 }

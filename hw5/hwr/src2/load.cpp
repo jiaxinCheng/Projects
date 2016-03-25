@@ -47,7 +47,6 @@ Load::~Load() {
 }
 void Load::load(){
 	delete Facile;
-	delete debug;
 	Facile = new QFile(Lfile -> text());
 	if (Lfile -> text().isEmpty()){
 		return;
@@ -62,6 +61,7 @@ void Load::load(){
     		temp.push_back(line);
     		program.push_back(parseLine(a));
 		}
+		delete debug;
 		debug = new Debugger(program,temp);
 		Facile -> close();
 		Lwindow -> hide();

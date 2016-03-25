@@ -45,8 +45,8 @@ public:
 	int StackTop();
 	bool StackEmpty();
 	void setStatement(int val);
-	void setGosub(bool val);
-	bool getGosub();
+	void altGosub(int val);
+	int getGosub();
 	int getStatement();
 	void start();
 	std::vector<std::pair<std::string, int> > getValue();
@@ -59,7 +59,7 @@ private:
 	int m_numLines;
 	int m_numStatement;
 	bool end; //to state whether the program is ended
-	bool gosub;
+	int gosub;
 	std::map<std::string, int> vari;
 	StackInt stack;
 };

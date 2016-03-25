@@ -4,7 +4,7 @@ ProgramState::ProgramState(int numlines){
 	m_numLines = numlines;
 	end = false;
 	m_numStatement = 0;
-	gosub = false;
+	gosub = 0;
 }
 ProgramState::~ProgramState(){
 
@@ -75,10 +75,10 @@ vector<pair<string, int> > ProgramState::getValue(){
 	return a;
 }
 
-void ProgramState::setGosub(bool val){
-	gosub = val;
+void ProgramState::altGosub(int val){
+	gosub += val;
 }
-bool ProgramState::getGosub(){
+int ProgramState::getGosub(){
 	return gosub;
 }
 void ProgramState::start(){

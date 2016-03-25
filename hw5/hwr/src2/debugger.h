@@ -36,7 +36,6 @@ class Debugger : public QWidget {
 		void step();
 		void quit();
 		void Break();
-		void removeBreak();
 		void acontinue();
 		void next();
 		void inspect();

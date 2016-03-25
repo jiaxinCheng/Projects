@@ -24,6 +24,6 @@ void GosubStatement::execute(ProgramState * state, ostream &outf)
 	else {
 		state -> StackPush(linenum + 1);
 		state ->setline(m_value);
-		state ->setGosub(true);
+		state ->altGosub(1);
 	}
 }

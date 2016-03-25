@@ -83,6 +83,7 @@ void Debugger::step() {
 		combo -> item(num-1) -> setForeground(Qt::black);
 		delete state;
 		state = new ProgramState(1);
+		state -> setStatement(disp.size());
 		combo -> item(0) -> setForeground(Qt::red);
 	}
 }
@@ -90,24 +91,7 @@ void Debugger::step() {
 void Debugger::quit(){
 	QApplication::exit();
 }
-void Debugger::removeBreak(){
-	int row = combo -> currentRow();
-	int i = 0;
-	if (breakpoints.size() == 0){
-		return;
-	}
-	while(row+1 > breakpoints[i]){ 
-		++i;
-	}
-	if (row +1 == breakpoints[i]){
-		breakpoints.erase(breakpoints.begin()+i);
-		combo -> item(row) -> setBackground(Qt::white);
-	}
-	else{
-		return;
-	}
-	
-}
+
 void Debugger::Break(){
 	int row =  combo ->currentRow();
 	int i = debugsearch(0,breakpoints.size()-1,row+1);
@@ -174,6 +158,7 @@ void Debugger::acontinue(){
 		combo -> item(num-1) -> setForeground(Qt::black);
 		delete state;
 		state = new ProgramState(1);
+		state -> setStatement(disp.size());
 		combo -> item(0) -> setForeground(Qt::red);
 	}
 }
@@ -195,9 +180,11 @@ int Debugger::debugsearch(int l, int r, int x){
 }
 
 void Debugger::next(){
+	int val = state -> getGosub();
 	int num = state -> getline();
-	if (!state -> getGosub()){
-		prog[num] -> execute(state, cout);	
+	prog[num] -> execute(state, cout);
+	int val2 = state -> getGosub();	
+	if (val == val2){		
 		if (state -> getline() == -1){
 			error1 -> div();
 			error1 -> show();
@@ -211,9 +198,9 @@ void Debugger::next(){
 			combo -> item(state ->getline()-1) -> setForeground(Qt::red);
 		}
 	}
-	else {
+	else {	
 		combo -> item(num-1) -> setForeground(Qt::black);
-		while (state -> getGosub()){
+		while (val < state -> getGosub() && !state -> endcheck()){
 			prog[state -> getline()] -> execute(state,cout);
 			if (state -> getline() == -1){
 				error1 -> div();
@@ -226,12 +213,12 @@ void Debugger::next(){
 				break;
 			}
 		}
-		combo -> item(state -> getline()-1) -> setForeground(Qt::red);
 	}
 	if(state -> endcheck()){
 		combo -> item(num-1) -> setForeground(Qt::black);
 		delete state;
 		state = new ProgramState(1);
+		state -> setStatement(disp.size());
 		combo -> item(0) -> setForeground(Qt::red);
 	}
 }
