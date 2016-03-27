@@ -33,7 +33,7 @@ class Inspect : public QWidget {
 		void NumSD();
 		void quit();
 	public:
-		Inspect(std::vector<std::pair<std::string,int> > a, ProgramState* b);
+		Inspect(std::vector<std::pair<std::string,int> > a, ProgramState* b); //pass in a vector of pair and programstate
 		~Inspect();
 		void show();
 		void inspectI();
@@ -48,5 +48,5 @@ class Inspect : public QWidget {
 		QPushButton *Ibutton4, *Ibutton5, *Ibutton6;
 		vector <pair<string, int> > values;
 		ProgramState* state;
-		int update;
+		int update;//update value to see the way to search
 };

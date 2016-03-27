@@ -32,11 +32,11 @@
 
 class Debugger : public QWidget {
 	Q_OBJECT
-	public slots:
-		void step();
-		void quit();
-		void Break();
-		void acontinue();
+	public slots: 
+		void step(); // step functions that used to connect to the button step
+		void quit(); //quit function
+		void Break(); // break slots that used to add and remove breakpoints
+		void acontinue(); // continue
 		void next();
 		void inspect();
 	public:
@@ -44,6 +44,7 @@ class Debugger : public QWidget {
 		~Debugger();
 		void show();
 	private:
+		//declaring all of the elements needed for GUI
 		QPushButton *button1, *button2, *button3;
 		QPushButton *button4, *button5, *button6;
 		QListWidget *combo;
@@ -51,13 +52,14 @@ class Debugger : public QWidget {
 		QHBoxLayout *h1, *h2;
 		QVBoxLayout *v1;
 		QVBoxLayout *v2;
-
+		//vector of breakpoints
 		std::vector <int> breakpoints;
+		//binary search for sorted vector breakpoints
 		int debugsearch(int l, int r,int x);
 		ProgramState *state;
 		std::vector<Statement *> prog; 
 		std::vector<QString> disp;
-		Inspect *inspect1;
-		Error *error1;
+		Inspect *inspect1; // has a pointer for inspect 
+		Error *error1; // has a pointer for error
 
 };

@@ -62,12 +62,12 @@ void Inspect::show(){
 }
 
 void Inspect::Update(){
-	while(inspect->count() >0){
+	while(inspect->count() >0){// if there is something in the listwidget, clear everything
 		inspect -> takeItem(0);
 	}
 	stringstream ss;
 	values = state -> getValue();
-	if(update == 1){
+	if(update == 1){// if update is 1, sort everything increasingly by name
 		NameCompI comp;
 		mergeSort(values, comp);
 	}
@@ -83,7 +83,7 @@ void Inspect::Update(){
 		NumCompD comp4;
 		mergeSort(values,comp4);
 	}
-	for (unsigned int i = 0; i < values.size(); i++){
+	for (unsigned int i = 0; i < values.size(); i++){//after sorting, put everything in to listwidget
 		string temp;
 		ss<< values[i].first << ":" << values[i].second;
 		ss >> temp;
@@ -111,7 +111,7 @@ void Inspect::inspectI(){
 	NameCompI comp;
 	update =1;
 	mergeSort(values, comp);
-	for (unsigned int i = 0; i < values.size(); i++){
+	for (unsigned int i = 0; i < values.size(); i++){// put everything into listwidget
 		string temp;
 		ss<< values[i].first << ":" << values[i].second;
 		ss >> temp;

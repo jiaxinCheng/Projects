@@ -23,7 +23,7 @@ void merge(vector<T>& array, Comparator comp, int l, int r, int m){
     int i =l, j = m+1;
     vector<T> temp;
     while(i <=m || j <= r){
-      if(i <= m && (j >r || comp(array[i], array[j]))){
+      if(i <= m && (j >r || comp(array[i], array[j]))){// use comparators to compare instead of normal compare, everything else is the same
         temp.push_back(array[i]);
         ++i;
       }

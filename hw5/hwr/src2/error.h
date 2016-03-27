@@ -39,7 +39,7 @@ class Error : public QWidget {
 		void show();
 		void load();
 	private:
-		//load window
+		//error window
 		QLabel *Emsg;
 		QPushButton *Ebutton1;
 		QWidget *Ewindow;
