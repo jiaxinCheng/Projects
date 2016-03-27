@@ -1,13 +1,13 @@
 #include <string>
 #include <utility>
 using namespace std;
-struct StringCom {  
+struct StringCom {  //comparator for string compare
     bool operator()(const string &a, const string &b){
       return a < b;
     }
 };
 
-struct PairCom{
+struct PairCom{ //for pair compare
   bool operator()(const std::pair<string, int> &a, const std::pair<string,int> &b){
     return a.first < b.first;
   }

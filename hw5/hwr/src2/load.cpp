@@ -95,14 +95,14 @@ Statement * Load::parseLine(string line)
 		ss >> val;
 		statement = new LetStatement(var, val);
 	}
-	if (type == "PRINT"){
+	else if (type == "PRINT"){
 		ss >> var;
 		statement = new PrintStatement(var);
 	}
-	if (type == "END"|| type == "."){
+	else if (type == "END"|| type == "."){
 		statement = new EndStatement();
 	}
-	if (type == "IF"){
+	else if (type == "IF"){
 		ss >> var;
 		string oper;
 		ss >> oper;
@@ -113,52 +113,47 @@ Statement * Load::parseLine(string line)
 		ss >> lnum;
 		statement = new IfStatement(var,val,oper,lnum);
 	}
-	if (type == "PRINTALL"){
+	else if (type == "PRINTALL"){
 		statement = new PrintAllStatement();
 	}
 
-	if (type == "GOTO"){
+	else if (type == "GOTO"){
 		ss >> val;
 		statement = new GotoStatement(val);
 	}
 
-	if (type == "ADD"){
+	else if (type == "ADD"){
 		string something;
 		ss >> var;
 		ss >> something;
 		statement = new AddStatement(var, something);
 	}
-	if (type == "SUB"){
+	else if (type == "SUB"){
 		string something;
 		ss >> var;
 		ss >> something;
 		statement = new SubStatement(var, something);
 	}
-	if (type == "MULT"){
+	else if (type == "MULT"){
 		string something;
 		ss >> var;
 		ss >> something;
 		statement = new MultStatement(var, something);
 	}
-	if (type == "DIV"){
+	else if (type == "DIV"){
 		string something;
 		ss >> var;
 		ss >> something;
 		statement = new DivStatement(var, something);
 	}
 	
-	if (type == "GOSUB"){
+	else if (type == "GOSUB"){
 		ss >> val;
 		statement = new GosubStatement(val);
 	}
 	
-	if(type == "RETURN"){
+	else{
 		statement = new ReturnStatement();
 	}
-	
-	
-	// Incomplete;  TODO:  Finish this function!
-	//what remaining are the number operations
-	
 	return statement;
 }

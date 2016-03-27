@@ -100,27 +100,30 @@ void Debugger::Break(){
 		breakpoints.push_back(row+1);
 		combo -> item(row) -> setBackground(Qt::yellow);
 	}
-	if (i>0){ //if current line is already a breakpoint remove it
-		breakpoints.erase(breakpoints.begin()+i);
-		combo -> item(row) -> setBackground(Qt::white);
+	else {
+		if (i>=0){ //if current line is already a breakpoint remove it
+			breakpoints.erase(breakpoints.begin()+i);
+			combo -> item(row) -> setBackground(Qt::white);
+		}
+		else{ // if not, add the current line into the breakpoint vector and keep the vector sorted
+			if (row +1 < breakpoints[0]){
+				breakpoints.insert(breakpoints.begin(), row+1);
+				combo -> item(row) -> setBackground(Qt::yellow);
+			}
+			else if (row +1 > breakpoints[breakpoints.size()-1]){
+				breakpoints.push_back(row+1);
+				combo -> item(row) -> setBackground(Qt::yellow);
+			}
+			else {
+				while(row+1 > breakpoints[i]) {	
+					++i;
+				}			
+				breakpoints.insert(breakpoints.begin()+i, row+1);
+				combo -> item(row) -> setBackground(Qt::yellow);	
+			}
+		}
 	}
-	else{ // if not, add the current line into the breakpoint vector and keep the vector sorted
-		if (row +1 < breakpoints[0]){
-			breakpoints.insert(breakpoints.begin(), row+1);
-			combo -> item(row) -> setBackground(Qt::yellow);
-		}
-		else if (row +1 > breakpoints[breakpoints.size()-1]){
-			breakpoints.push_back(row+1);
-			combo -> item(row) -> setBackground(Qt::yellow);
-		}
-		else {
-			while(row+1 > breakpoints[i]) {	
-				++i;
-			}			
-			breakpoints.insert(breakpoints.begin()+i, row+1);
-			combo -> item(row) -> setBackground(Qt::yellow);	
-		}
-	}
+
 }
 
 void Debugger::acontinue(){
@@ -161,7 +164,7 @@ void Debugger::acontinue(){
 	}
 }
 
-int Debugger::debugsearch(int l, int r, int x){ //binart search for the breakpoints
+int Debugger::debugsearch(int l, int r, int x){ //binary search for the breakpoints
 	int m = (l+r)/2;
 	if (l > r){
 		return -1;
@@ -198,7 +201,7 @@ void Debugger::next(){
 	}
 	else {	// or there is a gosub
 		combo -> item(num-1) -> setForeground(Qt::black);
-		while (val < state -> getGosub() && !state -> endcheck()){// while the program not changed and the val is smaller than current gosub value
+		while (val < state -> getGosub() && !state -> endcheck()&&debugsearch(0,breakpoints.size()-1,state->getline()) ==-1){// while the program not changed and the val is smaller than current gosub value
 			prog[state -> getline()] -> execute(state,cout);
 			if (state -> getline() == -1){
 				error1 -> div();
@@ -211,6 +214,7 @@ void Debugger::next(){
 				break;
 			}
 		}
+		combo -> item(state ->getline()-1) -> setForeground(Qt::red);
 	}
 	if(state -> endcheck()){ // if program ends, reset
 		combo -> item(num-1) -> setForeground(Qt::black);
