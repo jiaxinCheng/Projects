@@ -22,3 +22,15 @@ t.cpp
 t
 hw3q5.cpp
 Facile
+Makefile
+Maze
+kruskalishmaze.o
+main.o
+maze.o
+mazedisplay.o
+mazesolver.o
+moc_mazedisplay.cpp
+moc_mazedisplay.o
+ufds.o
+ui_mazedisplay.h
+visitedtracker.o
