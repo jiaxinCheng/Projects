@@ -123,7 +123,7 @@ void MazeSolver::solveByAStar(int choice)
         if(r == maze->getGoalRow() && c == maze->getGoalCol()){
             std::vector<Direction> path;
             std::stack<Direction> st;
-            int length = 0;
+            //int length = 0;
             while( r != maze->getStartRow() || c != maze->getStartCol()){
                 st.push(parent[squareNumber(r,c)]);
                 switch(st.top()){
@@ -136,10 +136,10 @@ void MazeSolver::solveByAStar(int choice)
             while (!st.empty()){
                 path.push_back(st.top());
                 st.pop();
-                length++;
+                //length++;
             }
             display->reportSolution(path, vt, numExplored);
-            cout << length << endl;
+            //cout << length << endl;
             return;
         }
         if ( maze->canTravel(UP, r, c) ){
@@ -337,7 +337,7 @@ void MazeSolver::solveByBFS(){
         {
             std::vector<Direction> path;
             std::stack<Direction> st;
-            int length = 0;
+            //int length = 0;
             while( r != maze->getStartRow() || c != maze->getStartCol())
             {
                 st.push( parent[ squareNumber(r,c) ]);
@@ -352,11 +352,11 @@ void MazeSolver::solveByBFS(){
             while ( ! st.empty() )
             {
                 path.push_back(st.top());
-                length ++;
+                //length ++;
                 st.pop();
             }
             display->reportSolution(path, vt, numExplored);
-            cout << length << endl;
+            //cout << length << endl;
             return;
         }
 
