@@ -1,5 +1,9 @@
 #include <vector>
+#include <string>
+#include <stdexcept>
+#include <exception>
 using namespace std;
+
 template <typename T>
 class MinHeap {
   public:
@@ -30,10 +34,10 @@ class MinHeap {
 
 template <typename T>
 MinHeap<T>::MinHeap(int d){
-  ary =2;
-  if (d >= 2){// if the value that user passed in is less than 2, this will automatically gives a binary tree
-    ary = d;
-  } 
+  if ( d < 2){
+    throw logic_error("d is not allowed to be less than 2");
+  }
+  ary =d;
 }
 
 template <typename T>
@@ -48,6 +52,9 @@ bool MinHeap<T>::isEmpty(){ //return empty
 
 template <typename T>
 const T & MinHeap<T>::peek() const{//return the first item
+  if (a.size() ==0){
+    throw logic_error("calling peek on a empty queue");
+  }
   return a[0];
 }
 
@@ -68,6 +75,9 @@ void MinHeap<T>::bubbleUp(int pos){// compare the priority and then swap anythin
 
 template <typename T>
 void MinHeap<T>::remove(){// remove the highest priority item
+  if (a.size() ==0){
+    throw logic_error("calling remove on a empty queue");
+  }
   swap(0,a.size()-1);
   a.pop_back();
   pri.pop_back();

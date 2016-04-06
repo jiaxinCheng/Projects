@@ -405,13 +405,13 @@ int MazeSolver::heuristic(int choice, int r, int c){// all the heurstic I have f
         return 0;
     }
     else if (choice == 2){
-        int a = maze -> getGoalCol()-1 -c;
-        int b = maze -> getGoalRow()-1 -r;
+        int a = maze -> getGoalCol()-c;
+        int b = maze -> getGoalRow()-r;
         return a+b;
     }
     else{
-        int a = maze -> getGoalCol()-1 -c;
-        int b = maze -> getGoalRow()-1 -r;
+        int a = maze -> getGoalCol()-c;
+        int b = maze -> getGoalRow()-r;
         return sqrt(a*a + b*b);
     }
 }
